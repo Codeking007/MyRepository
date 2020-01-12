@@ -23,3 +23,6 @@ eureka:
     lease-expiration-duration-in-seconds: 150
     #续约间隔时间,默认30
     lease-renewal-interval-in-seconds: 30
+test:
+  message: hello!
+      
