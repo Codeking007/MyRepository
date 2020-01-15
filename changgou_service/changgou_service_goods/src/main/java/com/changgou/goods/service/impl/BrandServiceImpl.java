@@ -67,6 +67,11 @@ public class BrandServiceImpl implements BrandService {
         return new PageInfo<Brand>(brands);
     }
 
+    @Override
+    public List<Brand> findByCategory(Integer cid) {
+        return brandMapper.findByCategory(cid);
+    }
+
     /**
      * 品牌查询条件构建方法
      *

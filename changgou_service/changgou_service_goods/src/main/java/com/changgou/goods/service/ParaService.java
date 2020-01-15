@@ -62,4 +62,5 @@ public interface ParaService {
      */
     List<Para> findAll();
 
+    List<Para> findByCategoryId(Integer cid);
 }

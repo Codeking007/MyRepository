@@ -113,4 +113,10 @@ public class SpecController {
         List<Spec> list = specService.findAll();
         return new Result<Spec>(true, StatusCode.OK, "查询成功", list);
     }
+
+    @GetMapping("/category/{cid}")
+    public Result<List<Spec>> findByCategoryId(@PathVariable Integer cid){
+        List<Spec> specs = specService.findByCategoryId(cid);
+        return new Result<List<Spec>>(true,StatusCode.OK,"查询成功",specs);
+    }
 }

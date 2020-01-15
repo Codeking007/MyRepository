@@ -114,5 +114,11 @@ public class ParaController {
         List<Para> list = paraService.findAll();
         return new Result<Para>(true, StatusCode.OK, "查询成功", list);
     }
+
+    @GetMapping("/category/{cid}")
+    public Result<List<Para>> findByCategoryId(@PathVariable Integer cid) {
+        List<Para> paras = paraService.findByCategoryId(cid);
+        return new Result<>(true, StatusCode.OK, "查询成功", paras);
+    }
 }
 
