@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>changgou_service_goods_api</module>
+        <module>changgou_service_content_api</module>
     </modules>
     <dependencies>
         <!--通用的common-->
