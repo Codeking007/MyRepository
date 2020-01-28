@@ -86,6 +86,7 @@ public class CanalDataEventListener {
         String categoryId = "";
         //新增
         if (eventType == CanalEntry.EventType.INSERT) {
+            System.out.println("--------广告新增-------");
             categoryId = rowData.getAfterColumns(1).getValue();
             //修改
         } else if (eventType == CanalEntry.EventType.UPDATE) {
@@ -95,7 +96,7 @@ public class CanalDataEventListener {
 
             //如果广告类别修改了
             if (!categoryIdBefore.equals(categoryId)) {
-                Result<List<Content>> contents = contentFeign.findByCategoryId(Long.valueOf(categoryId));
+                Result<List<Content>> contents = contentFeign.findByCategoryId(Long.valueOf(categoryIdBefore));
                 if (contents.getData() != null) {
                     //1 StringRedisTemplate.opsForValue().* //操作String字符串类型
                     //2 StringRedisTemplate.delete(key/collection) //根据key/keys删除
