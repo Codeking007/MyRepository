@@ -1,5 +1,5 @@
 package com.changgou.content.feign;
-import com.changgou.order.pojo.Content;
+import com.changgou.user.pojo.Content;
 import com.github.pagehelper.PageInfo;
 import entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;

@@ -20,8 +20,8 @@ public class SkuController {
         skuService.importSku();
         return new Result(true, StatusCode.OK,"导入数据到索引库中成功!");
     }
-    @PostMapping
-    public Map search(@RequestBody(required = false) Map searchMap){
+    @GetMapping
+    public Map search(@RequestParam(required = false) Map searchMap){
         return skuService.search(searchMap);
     }
 }

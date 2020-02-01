@@ -17,6 +17,8 @@
         <module>changgou_service_canal</module>
         <module>changgou_service_content</module>
         <module>changgou_service_search</module>
+        <module>changgou_service_rabbitmq</module>
+        <module>changgou_service_user</module>
     </modules>
 
     <dependencies>

@@ -15,6 +15,8 @@
         <module>changgou_service_goods_api</module>
         <module>changgou_service_content_api</module>
         <module>changgou_service_search_api</module>
+        <module>changgou_web_item_api</module>
+        <module>changgou_service_user_api</module>
     </modules>
     <dependencies>
         <!--通用的common-->
@@ -29,6 +31,17 @@
             <artifactId>persistence-api</artifactId>
             <version>1.0</version>
             <scope>compile</scope>
+        </dependency>
+        <!--去除默认日志-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 </project>

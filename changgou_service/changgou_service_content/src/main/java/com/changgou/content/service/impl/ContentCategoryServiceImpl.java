@@ -2,7 +2,7 @@ package com.changgou.content.service.impl;
 
 import com.changgou.content.dao.ContentCategoryMapper;
 import com.changgou.content.service.ContentCategoryService;
-import com.changgou.order.pojo.ContentCategory;
+import com.changgou.user.pojo.ContentCategory;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;

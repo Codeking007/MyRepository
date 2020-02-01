@@ -1,5 +1,5 @@
 package com.changgou.content.dao;
-import com.changgou.order.pojo.ContentCategory;
+import com.changgou.user.pojo.ContentCategory;
 import tk.mybatis.mapper.common.Mapper;
 
 /****

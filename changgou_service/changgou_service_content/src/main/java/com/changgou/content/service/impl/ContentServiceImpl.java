@@ -2,7 +2,7 @@ package com.changgou.content.service.impl;
 
 import com.changgou.content.dao.ContentMapper;
 import com.changgou.content.service.ContentService;
-import com.changgou.order.pojo.Content;
+import com.changgou.user.pojo.Content;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;

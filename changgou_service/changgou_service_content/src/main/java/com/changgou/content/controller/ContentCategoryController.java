@@ -1,7 +1,7 @@
 package com.changgou.content.controller;
 
 import com.changgou.content.service.ContentCategoryService;
-import com.changgou.order.pojo.ContentCategory;
+import com.changgou.user.pojo.ContentCategory;
 import com.github.pagehelper.PageInfo;
 import entity.Result;
 import entity.StatusCode;

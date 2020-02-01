@@ -2,9 +2,12 @@ package com.changgou.canal.listener;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.otter.canal.protocol.CanalEntry;
+import com.changgou.canal.mq.queue.TopicQueue;
+import com.changgou.canal.mq.send.TopicMessageSender;
 import com.changgou.content.feign.ContentFeign;
-import com.changgou.order.pojo.Content;
+import com.changgou.user.pojo.Content;
 import com.xpand.starter.canal.annotation.*;
+import entity.Message;
 import entity.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -17,6 +20,8 @@ public class CanalDataEventListener {
     private ContentFeign contentFeign;
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+    @Autowired
+    private TopicMessageSender topicMessageSender;
 
     /**
      * 新增监听
@@ -115,5 +120,39 @@ public class CanalDataEventListener {
         if (contents.getData() != null) {
             stringRedisTemplate.boundValueOps("content_" + categoryId).set(JSON.toJSONString(contents.getData()));
         }
+    }
+
+    @ListenPoint(destination = "example", schema = "changgou_goods", table = {"tb_spu"}, eventType = {CanalEntry.EventType.UPDATE, CanalEntry.EventType.DELETE})
+    public void onEventCustomSpu(CanalEntry.EventType eventType, CanalEntry.RowData rowData) {
+        if (eventType==CanalEntry.EventType.UPDATE){
+            System.out.println("--------商品更新-------");
+        }else if (eventType==CanalEntry.EventType.DELETE){
+            System.out.println("--------商品删除-------");
+        }
+        //操作类型
+        int number = eventType.getNumber();
+        //操作的数据
+        String id = getColumn(rowData, "id");
+        //封装Message
+        Message message = new Message(number, id, TopicQueue.TOPIC_QUEUE_SPU, TopicQueue.TOPIC_EXCHANGE_SPU);
+        topicMessageSender.sendMessage(message);
+    }
+
+    public String getColumn(CanalEntry.RowData rowData, String name) {
+        //操作后的数据
+        for (CanalEntry.Column column : rowData.getAfterColumnsList()) {
+            String columnName = column.getName();
+            if (columnName.equalsIgnoreCase(name)) {
+                return column.getValue();
+            }
+        }
+        //操作前的数据
+        for (CanalEntry.Column column : rowData.getBeforeColumnsList()) {
+            String columnName = column.getName();
+            if (columnName.equalsIgnoreCase(name)) {
+                return column.getValue();
+            }
+        }
+        return null;
     }
 }

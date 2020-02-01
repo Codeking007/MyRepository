@@ -1,4 +1,4 @@
-package com.changgou.order.pojo;
+package com.changgou.user.pojo;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.lang.Long;

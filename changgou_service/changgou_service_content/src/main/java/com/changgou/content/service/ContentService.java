@@ -1,6 +1,6 @@
 package com.changgou.content.service;
 
-import com.changgou.order.pojo.Content;
+import com.changgou.user.pojo.Content;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;

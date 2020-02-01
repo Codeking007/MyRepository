@@ -8,16 +8,27 @@ import com.changgou.search.pojo.SkuInfo;
 import com.changgou.search.service.SkuService;
 import entity.Result;
 import org.apache.commons.lang.StringUtils;
+import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.common.text.Text;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.search.aggregations.Aggregation;
+import org.elasticsearch.index.query.RangeQueryBuilder;
+import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.Aggregations;
 import org.elasticsearch.search.aggregations.bucket.terms.StringTerms;
 import org.elasticsearch.search.aggregations.bucket.terms.TermsAggregationBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+import org.elasticsearch.search.fetch.subphase.highlight.HighlightField;
+import org.elasticsearch.search.sort.SortBuilders;
+import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.SearchResultMapper;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
+import org.springframework.data.elasticsearch.core.aggregation.impl.AggregatedPageImpl;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Service;
@@ -81,21 +92,76 @@ public class SkuServiceImpl implements SkuService {
             //规格查询
             for (String key : searchMap.keySet()) {
                 if (key.startsWith("spec_")) {
-                    String specField = "specMap" + key.substring(5) + ".keyword";
+                    searchMap.get(key).replace("\\","");//并没有什么用
+                    String specField = "specMap." + key.substring(5) + ".keyword";
                     boolQueryBuilder.must(QueryBuilders.termQuery(specField, searchMap.get(key)));
                 }
             }
+            //价格区间查询
+            String price = searchMap.get("price") == null ? "" : searchMap.get("price");
+            if (StringUtils.isNotEmpty(price)) {
+                RangeQueryBuilder rangeQueryBuilder = QueryBuilders.rangeQuery("price");
+                String[] split = price.split("-");
+                boolQueryBuilder.must(rangeQueryBuilder.gte(split[0]));
+                if (split.length > 1) {
+                    boolQueryBuilder.must(rangeQueryBuilder.lte(split[1]));
+                }
+            }
             builder.withQuery(boolQueryBuilder);
+
+            //分页
+            //当前页
+            Integer page = searchMap.get("pageNum") == null ? 1 : new Integer(searchMap.get("pageNum"));
+            Integer pageSize = searchMap.get("pageSize") == null ? 5 : new Integer(searchMap.get("pageSize"));
+            PageRequest pageRequest = PageRequest.of(page, pageSize);
+            builder.withPageable(pageRequest);
+
+            //排序
+            //排序方式:ASC|DESC
+            String sortRule = searchMap.get("sortRule") == null ? "" : searchMap.get("sortRule");
+            //排序域名
+            String sortField = searchMap.get("sortField") == null ? "" : searchMap.get("sortField");
+            if (StringUtils.isNotEmpty(sortField)) {
+                builder.withSort(SortBuilders.fieldSort(sortField).order(SortOrder.valueOf(sortRule)));
+            }
         }
         return builder;
     }
 
     public void searchList(Map map, NativeSearchQueryBuilder builder) {
+        HighlightBuilder.Field hField = new HighlightBuilder.Field("name");
+        hField.preTags("<em style='color:red;'>");
+        hField.postTags("</em>");
+        //设置碎片大小
+        hField.fragmentSize(100);//高亮部分显示多少字
+        builder.withHighlightFields(hField);
         NativeSearchQuery query = builder.build();
-        AggregatedPage<SkuInfo> page = esTemplate.queryForPage(query, SkuInfo.class);
+//        AggregatedPage<SkuInfo> page = esTemplate.queryForPage(query, SkuInfo.class);
+        AggregatedPage<SkuInfo> page = esTemplate.queryForPage(query, SkuInfo.class, new SearchResultMapper() {
+            @Override
+            public <T> AggregatedPage<T> mapResults(SearchResponse searchResponse, Class<T> aClass, Pageable pageable) {
+                List<T> list = new ArrayList<>();
+                for (SearchHit hit : searchResponse.getHits()) {
+                    String json = hit.getSourceAsString();
+                    SkuInfo skuInfo = JSON.parseObject(json, SkuInfo.class);
+                    HighlightField nameHighlight = hit.getHighlightFields().get("name");
+                    if (nameHighlight != null) {
+                        StringBuffer buffer = new StringBuffer();
+                        for (Text fragment : nameHighlight.getFragments()) {
+                            buffer.append(fragment);
+                        }
+                        skuInfo.setName(buffer.toString());
+                    }
+                    list.add((T) skuInfo);
+                }
+                return new AggregatedPageImpl<T>(list, pageable, searchResponse.getHits().getTotalHits());
+            }
+        });
         map.put("rows", page.getContent());
         map.put("total", page.getTotalElements());
         map.put("totalPages", page.getTotalPages());
+        map.put("pageNum",query.getPageable().getPageNumber());
+        map.put("pageSize",query.getPageable().getPageSize());
     }
 
     public void searchCategoryList(Map map, NativeSearchQueryBuilder builder) {

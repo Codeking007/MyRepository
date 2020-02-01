@@ -6,6 +6,12 @@ spring:
   redis:
     host: 192.168.211.132
     port: 6379
+  #rabbitmq配置
+  rabbitmq:
+    host: 192.168.211.132
+    port: 5672
+    username: guest
+    password: guest
 eureka:
   client:
     service-url:
