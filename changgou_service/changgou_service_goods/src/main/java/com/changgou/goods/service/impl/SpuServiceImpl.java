@@ -181,4 +181,9 @@ public class SpuServiceImpl implements SpuService {
         spu.setIsDelete("0");
         spuMapper.updateByPrimaryKeySelective(spu);
     }
+
+    @Override
+    public Spu findSpuById(Long id) {
+        return spuMapper.selectByPrimaryKey(id);
+    }
 }

@@ -14,4 +14,7 @@ import java.util.List;
 public interface SkuFeign {
     @GetMapping("/status/{status}")
     Result<List<Sku>> findByStatus(@PathVariable String status);
+
+    @GetMapping("/{id}")
+    Result<Sku> findById(@PathVariable Long id);
 }

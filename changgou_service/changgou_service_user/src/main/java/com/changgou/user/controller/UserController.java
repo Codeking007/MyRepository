@@ -1,15 +1,23 @@
 package com.changgou.user.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.changgou.user.pojo.User;
 import com.changgou.user.service.UserService;
 import com.github.pagehelper.PageInfo;
 import entity.BCrypt;
+import entity.JwtUtil;
 import entity.Result;
 import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 /****
  * @Author:shenkunlin
@@ -32,11 +40,11 @@ public class UserController {
      * @param size
      * @return
      */
-    @PostMapping(value = "/search/{page}/{size}" )
-    public Result<PageInfo> findPage(@RequestBody(required = false)  User user, @PathVariable  int page, @PathVariable  int size){
+    @PostMapping(value = "/search/{page}/{size}")
+    public Result<PageInfo> findPage(@RequestBody(required = false) User user, @PathVariable int page, @PathVariable int size) {
         //调用UserService实现分页条件查询User
         PageInfo<User> pageInfo = userService.findPage(user, page, size);
-        return new Result(true,StatusCode.OK,"查询成功",pageInfo);
+        return new Result(true, StatusCode.OK, "查询成功", pageInfo);
     }
 
     /***
@@ -45,11 +53,11 @@ public class UserController {
      * @param size:每页显示多少条
      * @return
      */
-    @GetMapping(value = "/search/{page}/{size}" )
-    public Result<PageInfo> findPage(@PathVariable  int page, @PathVariable  int size){
+    @GetMapping(value = "/search/{page}/{size}")
+    public Result<PageInfo> findPage(@PathVariable int page, @PathVariable int size) {
         //调用UserService实现分页查询User
         PageInfo<User> pageInfo = userService.findPage(page, size);
-        return new Result<PageInfo>(true,StatusCode.OK,"查询成功",pageInfo);
+        return new Result<PageInfo>(true, StatusCode.OK, "查询成功", pageInfo);
     }
 
     /***
@@ -57,11 +65,11 @@ public class UserController {
      * @param user
      * @return
      */
-    @PostMapping(value = "/search" )
-    public Result<List<User>> findList(@RequestBody(required = false)  User user){
+    @PostMapping(value = "/search")
+    public Result<List<User>> findList(@RequestBody(required = false) User user) {
         //调用UserService实现条件查询User
         List<User> list = userService.findList(user);
-        return new Result<List<User>>(true,StatusCode.OK,"查询成功",list);
+        return new Result<List<User>>(true, StatusCode.OK, "查询成功", list);
     }
 
     /***
@@ -69,11 +77,12 @@ public class UserController {
      * @param id
      * @return
      */
-    @DeleteMapping(value = "/{id}" )
-    public Result delete(@PathVariable String id){
+    @PreAuthorize("hasAnyAuthority('admin')")
+    @DeleteMapping(value = "/{id}")
+    public Result delete(@PathVariable String id) {
         //调用UserService实现根据主键删除
         userService.delete(id);
-        return new Result(true,StatusCode.OK,"删除成功");
+        return new Result(true, StatusCode.OK, "删除成功");
     }
 
     /***
@@ -82,13 +91,13 @@ public class UserController {
      * @param id
      * @return
      */
-    @PutMapping(value="/{id}")
-    public Result update(@RequestBody  User user,@PathVariable String id){
+    @PutMapping(value = "/{id}")
+    public Result update(@RequestBody User user, @PathVariable String id) {
         //设置主键值
         user.setUsername(id);
         //调用UserService实现修改User
         userService.update(user);
-        return new Result(true,StatusCode.OK,"修改成功");
+        return new Result(true, StatusCode.OK, "修改成功");
     }
 
     /***
@@ -97,10 +106,10 @@ public class UserController {
      * @return
      */
     @PostMapping
-    public Result add(@RequestBody   User user){
+    public Result add(@RequestBody User user) {
         //调用UserService实现添加User
         userService.add(user);
-        return new Result(true,StatusCode.OK,"添加成功");
+        return new Result(true, StatusCode.OK, "添加成功");
     }
 
     /***
@@ -108,11 +117,11 @@ public class UserController {
      * @param id
      * @return
      */
-    @GetMapping("/{id}")
-    public Result<User> findById(@PathVariable String id){
+    @GetMapping({"/{id}","/load/{id}"})
+    public Result<User> findById(@PathVariable String id) {
         //调用UserService实现根据主键查询User
         User user = userService.findById(id);
-        return new Result<User>(true,StatusCode.OK,"查询成功",user);
+        return new Result<User>(true, StatusCode.OK, "查询成功", user);
     }
 
     /***
@@ -120,28 +129,42 @@ public class UserController {
      * @return
      */
     @GetMapping
-    public Result<List<User>> findAll(){
+    public Result<List<User>> findAll() {
         //调用UserService实现查询所有User
         List<User> list = userService.findAll();
-        return new Result<List<User>>(true, StatusCode.OK,"查询成功",list) ;
+        return new Result<List<User>>(true, StatusCode.OK, "查询成功", list);
     }
 
     /**
      * 用户登录
+     *
      * @param username
      * @param password
      * @return
      */
     @RequestMapping("login")
-    public Result login(String username,String password){
+    public Result login(String username, String password, HttpServletResponse response) {
         User user = userService.findById(username);
-        if (user==null) {
-            return new Result(false,StatusCode.LOGINERROR,"用户名不存在!");
-        }else {
-            if (BCrypt.checkpw(password,user.getPassword())){
-                return new Result(true,StatusCode.OK,"登录成功!",user);
-            }else {
-                return new Result(false,StatusCode.LOGINERROR,"输入的密码错误!");
+        if (user == null) {
+            return new Result(false, StatusCode.LOGINERROR, "用户名不存在!");
+        } else {
+            if (BCrypt.checkpw(password, user.getPassword())) {
+                //封装令牌信息
+                Map<String, Object> map = new HashMap<>();
+                map.put("role", "USER");
+                map.put("flag", true);
+                map.put("user", user);
+                //创建令牌
+                String token = JwtUtil.createJWT(UUID.randomUUID().toString(), JSON.toJSONString(map), null);
+                //把令牌传给客户端
+                //1-响应头中
+                response.addHeader("Authorization",token);
+                //2-cookie中
+                Cookie cookie = new Cookie("Authorization",token);
+                response.addCookie(cookie);
+                return new Result(true, StatusCode.OK, "登录成功!", user);
+            } else {
+                return new Result(false, StatusCode.LOGINERROR, "输入的密码错误!");
             }
         }
     }

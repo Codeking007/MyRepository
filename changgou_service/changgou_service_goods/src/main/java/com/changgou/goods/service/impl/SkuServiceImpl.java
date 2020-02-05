@@ -17,4 +17,9 @@ public class SkuServiceImpl implements SkuService {
     public List<Sku> findList(Sku sku) {
         return skuMapper.select(sku);
     }
+
+    @Override
+    public Sku findById(Long id) {
+        return skuMapper.selectByPrimaryKey(id);
+    }
 }

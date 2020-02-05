@@ -1,6 +1,7 @@
 package com.changgou.goods.controller;
 
 import com.changgou.goods.pojo.Goods;
+import com.changgou.goods.pojo.Spu;
 import com.changgou.goods.service.SpuService;
 import entity.Result;
 import entity.StatusCode;
@@ -66,5 +67,10 @@ public class SpuController {
     public Result restore(@PathVariable Long id){
         spuService.restore(id);
         return new Result(true,StatusCode.OK,"数据恢复成功!");
+    }
+    @GetMapping("{id}")
+    public Result findSpuById(@PathVariable Long id){
+        Spu spu = spuService.findSpuById(id);
+        return new Result(true,StatusCode.OK,"查找成功!",spu);
     }
 }

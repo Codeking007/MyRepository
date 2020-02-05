@@ -23,4 +23,9 @@ public class SkuController {
         List<Sku> skus = skuService.findList(sku);
         return new Result<>(true, StatusCode.OK, "查询成功", skus);
     }
+    @GetMapping("/{id}")
+    public Result findById(@PathVariable Long id){
+        Sku sku = skuService.findById(id);
+        return new Result(true,StatusCode.OK,"查询成功",sku);
+    }
 }

@@ -14,6 +14,13 @@ spring:
               - PUT
               - DELETE
       routes:
+        - id: changgou_user_route
+          uri: lb://user
+          predicates:
+            - Path=/api/user/**,/api/address/**,/api/areas/**,/api/cities/**,/api/provinces/**
+          filters:
+            - StripPrefix=1
+
         - id: changgou_goods_route  #路由唯一标识
 #          uri: http://localhost:18081 #路由转发地址
           uri: lb://goods #发送给注册服务名字为goods的服务器
@@ -22,7 +29,7 @@ spring:
             # 拦截请求是cloud.itheima.com域名的请求
 #            - Host=cloud.itheima.com**
             # 拦截路径为/brand的请求
-            - Path=/**
+            - Path=/api/album/**,/api/brand/**,/api/cache/**,/api/categoryBrand/**,/api/category/**,/api/para/**,/api/pref/**,/api/sku/**,/api/spec/**,/api/spu/**,/api/stockBack/**,/api/template/**
           filters:
             # 自动添加请求前缀
 #            - PrefixPath=/brand

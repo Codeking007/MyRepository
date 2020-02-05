@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface SkuService {
     List<Sku> findList(Sku sku);
+
+    Sku findById(Long id);
 }

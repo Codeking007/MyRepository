@@ -1,6 +1,7 @@
 package com.changgou.goods.service;
 
 import com.changgou.goods.pojo.Goods;
+import com.changgou.goods.pojo.Spu;
 
 public interface SpuService {
     void saveGoods(Goods goods);
@@ -27,4 +28,6 @@ public interface SpuService {
     void delete(Long id);
 
     void restore(Long id);
+
+    Spu findSpuById(Long id);
 }
