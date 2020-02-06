@@ -56,14 +56,24 @@ public interface UserService {
 
     /**
      * 根据ID查询User
+     *
      * @param id
      * @return
      */
-     User findById(String id);
+    User findById(String id);
 
     /***
      * 查询所有User
      * @return
      */
     List<User> findAll();
+
+    /***
+     * 添加用户积分
+     * @param username
+     * @param pint
+     * @return
+     */
+    int addUserPoints(String username, Integer pint);
+
 }

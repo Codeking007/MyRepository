@@ -207,4 +207,9 @@ public class UserServiceImpl implements UserService {
     public List<User> findAll() {
         return userMapper.selectAll();
     }
+
+    @Override
+    public int addUserPoints(String username, Integer pint) {
+        return userMapper.addUserPoints(username,pint);
+    }
 }

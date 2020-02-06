@@ -18,6 +18,8 @@ import reactor.core.publisher.Mono;
 public class AuthorizeFilter implements GlobalFilter, Ordered {
     //令牌的key
     private static final String AUTHORIZE_TOKEN = "Authorization";
+    //登录url
+    private static final String USER_LOGIN_URL = "http://localhost:9001/oauth/login";
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
@@ -26,7 +28,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
         //获取请求的uri
         String uri = request.getURI().getPath();
         //登录放行
-        if (uri.startsWith("/api/user/login")) {
+        if (!URLFilter.hasAuthorize(uri)) {
             return chain.filter(exchange);
         } else {//非登录请求
             String token = request.getHeaders().getFirst(AUTHORIZE_TOKEN);
@@ -41,7 +43,10 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
             }
             //如果还是没有则返回405错误
             if (StringUtils.isEmpty(token)) {
-                response.setStatusCode(HttpStatus.METHOD_NOT_ALLOWED);
+//                response.setStatusCode(HttpStatus.METHOD_NOT_ALLOWED);
+                response.setStatusCode(HttpStatus.SEE_OTHER);
+                String url = USER_LOGIN_URL+"?FROM="+request.getURI();
+                response.getHeaders().set("Location",url);
                 return response.setComplete();
             } else {//如果有token
                 try {

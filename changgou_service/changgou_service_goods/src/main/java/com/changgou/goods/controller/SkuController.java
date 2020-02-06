@@ -28,4 +28,9 @@ public class SkuController {
         Sku sku = skuService.findById(id);
         return new Result(true,StatusCode.OK,"查询成功",sku);
     }
+    @PostMapping("decr/count/{username}")
+    public Result decrCount(@PathVariable String username){
+        skuService.decrCount(username);
+        return new Result(true,StatusCode.OK,"库存递减成功!");
+    }
 }

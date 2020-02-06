@@ -46,21 +46,24 @@ public class AuthController {
 
     @PostMapping("/login")
     public Result login(String username, String password) {
-        if(StringUtils.isEmpty(username)){
-            throw new RuntimeException("用户名不允许为空");
+        try {
+            if(StringUtils.isEmpty(username)){
+                throw new RuntimeException("用户名不允许为空");
+            }
+            if(StringUtils.isEmpty(password)){
+                throw new RuntimeException("密码不允许为空");
+            }
+            //申请令牌
+            AuthToken authToken =  authService.login(username,password,clientId,clientSecret);
+            //用户身份令牌
+            String access_token = authToken.getAccessToken();
+            //将令牌存储到cookie
+            saveCookie(access_token);
+            return new Result(true, StatusCode.OK,"登录成功！",access_token);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        if(StringUtils.isEmpty(password)){
-            throw new RuntimeException("密码不允许为空");
-        }
-        //申请令牌
-        AuthToken authToken =  authService.login(username,password,clientId,clientSecret);
-
-        //用户身份令牌
-        String access_token = authToken.getAccessToken();
-        //将令牌存储到cookie
-        saveCookie(access_token);
-
-        return new Result(true, StatusCode.OK,"登录成功！",access_token);
+        return new Result(false,StatusCode.LOGINERROR,"登录失败!");
     }
 
     /***

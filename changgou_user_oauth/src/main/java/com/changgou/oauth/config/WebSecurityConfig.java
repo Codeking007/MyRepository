@@ -26,6 +26,13 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring().antMatchers(
                 "/user/login",
                 "/my/login",
+                "/css/**",
+                "/data/**",
+                "/fonts/**",
+                "/img/**",
+                "/js/**",
+                "/login.html",
+                "/oauth/login",  //放行登录跳转
                 "/user/logout");
     }
 
@@ -61,6 +68,8 @@ class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()        //启用Http基本身份验证
                 .and()
                 .formLogin()       //启用表单身份验证
+                    .loginPage("/oauth/login")//默认登录页
+                    .loginProcessingUrl("/user/login")//默认的登录处理地址
                 .and()
                 .authorizeRequests()    //限制基于Request请求访问
                 .anyRequest()

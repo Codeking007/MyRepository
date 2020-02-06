@@ -5,6 +5,7 @@ import entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -17,4 +18,7 @@ public interface SkuFeign {
 
     @GetMapping("/{id}")
     Result<Sku> findById(@PathVariable Long id);
+
+    @PostMapping("/decr/count/{username}")
+    Result decrCount(@PathVariable String username);
 }

@@ -5,10 +5,12 @@ import com.changgou.order.service.OrderService;
 import com.github.pagehelper.PageInfo;
 import entity.Result;
 import entity.StatusCode;
+import entity.TokenDecode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /****
  * @Author:shenkunlin
@@ -97,6 +99,9 @@ public class OrderController {
      */
     @PostMapping
     public Result add(@RequestBody   Order order){
+        Map<String, String> userInfo = TokenDecode.getUserInfo();
+        String username = userInfo.get("username");
+        order.setUsername(username);
         //调用OrderService实现添加Order
         orderService.add(order);
         return new Result(true,StatusCode.OK,"添加成功");

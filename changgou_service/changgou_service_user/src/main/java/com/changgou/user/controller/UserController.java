@@ -4,10 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.changgou.user.pojo.User;
 import com.changgou.user.service.UserService;
 import com.github.pagehelper.PageInfo;
-import entity.BCrypt;
-import entity.JwtUtil;
-import entity.Result;
-import entity.StatusCode;
+import entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -117,7 +114,7 @@ public class UserController {
      * @param id
      * @return
      */
-    @GetMapping({"/{id}","/load/{id}"})
+    @GetMapping({"/{id}", "/load/{id}"})
     public Result<User> findById(@PathVariable String id) {
         //调用UserService实现根据主键查询User
         User user = userService.findById(id);
@@ -158,14 +155,28 @@ public class UserController {
                 String token = JwtUtil.createJWT(UUID.randomUUID().toString(), JSON.toJSONString(map), null);
                 //把令牌传给客户端
                 //1-响应头中
-                response.addHeader("Authorization",token);
+                response.addHeader("Authorization", token);
                 //2-cookie中
-                Cookie cookie = new Cookie("Authorization",token);
+                Cookie cookie = new Cookie("Authorization", token);
                 response.addCookie(cookie);
                 return new Result(true, StatusCode.OK, "登录成功!", user);
             } else {
                 return new Result(false, StatusCode.LOGINERROR, "输入的密码错误!");
             }
         }
+    }
+
+    /***
+     * 增加用户积分
+     * @param points:要添加的积分
+     */
+    @GetMapping(value = "/points/add")
+    public Result addPoints(@RequestParam(value = "points") Integer points) {
+        //获取用户名
+        Map<String, String> userMap = TokenDecode.getUserInfo();
+        String username = userMap.get("username");
+        //添加积分
+        userService.addUserPoints(username, points);
+        return new Result(true, StatusCode.OK, "添加积分成功！");
     }
 }
