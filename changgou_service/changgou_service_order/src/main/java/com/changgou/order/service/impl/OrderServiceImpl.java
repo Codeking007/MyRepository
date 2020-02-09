@@ -240,11 +240,11 @@ public class OrderServiceImpl implements OrderService {
      * @param order
      */
     @Override
-    public void add(Order order) {
+    public Order add(Order order) {
         //查询出用户所有的购物车
         List<OrderItem> orderItems = cartService.list(order.getUsername());
         //基本数据完善
-        order.setId("NO."+idWorker.nextId());  //订单号
+        order.setId("NO." + idWorker.nextId());  //订单号
         order.setCreateTime(new Date());
         order.setUpdateTime(order.getCreateTime());
         order.setBuyerRate("0");        //0:未评价，1：已评价
@@ -254,20 +254,20 @@ public class OrderServiceImpl implements OrderService {
         order.setConsignStatus("0");    //0:未发货，1：已发货，2：已收货
         //统计计算
         int totalMoney = 0;  //总金额
-        int totalPayMoney=0;  //实际支付金额
+        int totalPayMoney = 0;  //实际支付金额
         int num = 0;  //总数量
         //添加订单细明
         for (OrderItem orderItem : orderItems) {
-            orderItem.setId("NO."+idWorker.nextId());
+            orderItem.setId("NO." + idWorker.nextId());
             orderItem.setIsReturn("0");
             orderItem.setOrderId(order.getId());
 
             //总金额
-            totalMoney+=orderItem.getMoney();
+            totalMoney += orderItem.getMoney();
             //实际支付金额
-            totalPayMoney+=orderItem.getPayMoney();
+            totalPayMoney += orderItem.getPayMoney();
             //总数量
-            num+=orderItem.getNum();
+            num += orderItem.getNum();
             //保存订单明细
             orderItemMapper.insertSelective(orderItem);
         }
@@ -275,7 +275,7 @@ public class OrderServiceImpl implements OrderService {
         order.setTotalNum(num);
         order.setTotalMoney(totalMoney);
         order.setPayMoney(totalPayMoney);
-        order.setPreMoney(totalMoney-totalPayMoney);
+        order.setPreMoney(totalMoney - totalPayMoney);
         //保存订单
         orderMapper.insertSelective(order);
         //减少库存
@@ -283,7 +283,16 @@ public class OrderServiceImpl implements OrderService {
         //增加积分
         userFeign.addPoints(10);
         //清除Redis缓存购物车数据
-        redisTemplate.delete("Cart_"+order.getUsername());
+        redisTemplate.delete("Cart_" + order.getUsername());
+
+        //如果是在线支付
+        if (order.getPayType().equals("1")) {
+            //把订单放入redis中
+            redisTemplate.boundHashOps("orders").put(order.getId(), order);
+            //redis队列
+            redisTemplate.boundListOps("orders").set(Long.parseLong(order.getId().substring(3)),order.getId());
+        }
+        return order;
     }
 
     /**
@@ -305,5 +314,35 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public List<Order> findAll() {
         return orderMapper.selectAll();
+    }
+
+    @Override
+    public void updateStatus(String orderId, String transactionId) {
+        //1.从redis中查询订单
+        Order order = (Order) redisTemplate.boundHashOps("orders").get(orderId);
+        //修改状态
+        if (order != null) {
+            order.setUpdateTime(new Date());
+            order.setPayTime(order.getUpdateTime());
+            order.setTransactionId(transactionId);
+            order.setPayStatus("1");
+            orderMapper.updateByPrimaryKeySelective(order);
+            //删除redis中的订单记录
+            redisTemplate.boundHashOps("orders").delete(orderId);
+        }
+    }
+
+    @Override
+    public void deleteOrder(String orderId) {
+        //1.从redis中查询订单
+        Order order = (Order) redisTemplate.boundHashOps("orders").get(orderId);
+        //2.修改状态
+        order.setUpdateTime(new Date());
+        order.setPayStatus("2");    //支付失败
+        orderMapper.updateByPrimaryKeySelective(order);
+        //3.还原库存
+        skuFeign.incrCount(order.getUsername());
+        //4.删除redis中的订单记录
+        redisTemplate.boundHashOps("orders").delete(orderId);
     }
 }

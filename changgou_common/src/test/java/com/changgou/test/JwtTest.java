@@ -46,4 +46,9 @@ public class JwtTest {
         Claims claims = jwtParser.parseClaimsJws(token).getBody();
         System.out.println(claims);
     }
+    @Test
+    public void test01(){
+        String s = "no.1234";
+        System.out.println(s.substring(3));
+    }
 }

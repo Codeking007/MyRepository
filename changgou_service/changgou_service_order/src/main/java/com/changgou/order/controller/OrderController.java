@@ -98,13 +98,13 @@ public class OrderController {
      * @return
      */
     @PostMapping
-    public Result add(@RequestBody   Order order){
+    public Result<Order> add(@RequestBody   Order order){
         Map<String, String> userInfo = TokenDecode.getUserInfo();
         String username = userInfo.get("username");
         order.setUsername(username);
         //调用OrderService实现添加Order
-        orderService.add(order);
-        return new Result(true,StatusCode.OK,"添加成功");
+        order = orderService.add(order);
+        return new Result(true,StatusCode.OK,"下单成功",order);
     }
 
     /***

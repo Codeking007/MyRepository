@@ -14,6 +14,9 @@ spring:
     port: 6379
   main:
     allow-bean-definition-overriding: true
+  rabbitmq:
+    host: 192.168.211.132
+    port: 5672
 
 eureka:
   client:
@@ -35,3 +38,9 @@ hystrix:
             timeoutInMilliseconds: 10000
           # 隔离模式使用信号量隔离SEMAPHORE 默认值是线程隔离THREAD
           strategy: SEMAPHORE
+#队列名
+mq:
+  pay:
+    queue:
+      order: queue.order
+#      order: Weixin_Pay_Status_Queue

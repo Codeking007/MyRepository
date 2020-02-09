@@ -37,4 +37,12 @@ public class SkuServiceImpl implements SkuService {
             }
         }
     }
+
+    @Override
+    public void incrCount(String username) {
+        List<OrderItem> orderItems = redisTemplate.boundHashOps("Cart_" + username).values();
+        for (OrderItem orderItem : orderItems) {
+            int count = skuMapper.incrCount(orderItem.getNum(), orderItem.getSkuId());
+        }
+    }
 }

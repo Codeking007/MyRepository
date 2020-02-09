@@ -10,4 +10,6 @@ public interface SkuService {
     Sku findById(Long id);
 
     void decrCount(String username);
+
+    void incrCount(String username);
 }

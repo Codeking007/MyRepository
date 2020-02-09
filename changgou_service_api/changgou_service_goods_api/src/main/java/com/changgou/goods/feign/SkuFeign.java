@@ -21,4 +21,7 @@ public interface SkuFeign {
 
     @PostMapping("/decr/count/{username}")
     Result decrCount(@PathVariable String username);
+
+    @PostMapping("/incr/count/{username}")
+    Result incrCount(@PathVariable String username);
 }

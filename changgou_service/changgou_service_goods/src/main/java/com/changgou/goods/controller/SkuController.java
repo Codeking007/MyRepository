@@ -33,4 +33,10 @@ public class SkuController {
         skuService.decrCount(username);
         return new Result(true,StatusCode.OK,"库存递减成功!");
     }
+
+    @PostMapping("incr/count/{username}")
+    public Result incrCount(@PathVariable String username){
+        skuService.incrCount(username);
+        return new Result(true,StatusCode.OK,"库存还原成功!");
+    }
 }

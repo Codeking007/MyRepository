@@ -52,18 +52,33 @@ public interface OrderService {
      * 新增Order
      * @param order
      */
-    void add(Order order);
+    Order add(Order order);
 
     /**
      * 根据ID查询Order
+     *
      * @param id
      * @return
      */
-     Order findById(String id);
+    Order findById(String id);
 
     /***
      * 查询所有Order
      * @return
      */
     List<Order> findAll();
+
+    /**
+     * 支付成功-修改订单状态
+     *
+     * @param orderId
+     * @param transactionId
+     */
+    void updateStatus(String orderId, String transactionId);
+
+    /**
+     * 删除订单操作
+     * @param orderId
+     */
+    void deleteOrder(String orderId);
 }
