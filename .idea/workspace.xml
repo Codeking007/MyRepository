@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_TEST_SOURCES" value="false" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7d90477f-15a5-4be8-b03a-80baf92dc355" name="Default Changelist" comment="第八次提交,第16天,秒杀系统">
+      <change afterPath="$PROJECT_DIR$/changgou_transaction_fescar/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changgou_transaction_fescar/src/main/java/com/changgou/conf/DataSourceProxyConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changgou_transaction_fescar/src/main/resources/file.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changgou_transaction_fescar/src/main/resources/registry.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/changgou_user_oauth/src/test/java/com/changgou/token/ListTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_file/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_file/target/classes/fdfs_client.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_goods/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_service/changgou_service_goods/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_goods/src/main/java/com/changgou/goods/service/impl/SkuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_service/changgou_service_goods/src/main/java/com/changgou/goods/service/impl/SkuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_goods/src/main/java/com/changgou/goods/service/impl/SpuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_service/changgou_service_goods/src/main/java/com/changgou/goods/service/impl/SpuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_goods/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_service/changgou_service_goods/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_goods/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_service/changgou_service_goods/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_order/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_service/changgou_service_order/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_order/src/main/java/com/changgou/order/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_service/changgou_service_order/src/main/java/com/changgou/order/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_order/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_service/changgou_service_order/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_seckill/src/main/java/com/changgou/seckill/service/impl/SeckillOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_service/changgou_service_seckill/src/main/java/com/changgou/seckill/service/impl/SeckillOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_service/changgou_service_user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_user/src/main/java/com/changgou/user/config/ResourceServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_service/changgou_service_user/src/main/java/com/changgou/user/config/ResourceServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_user/src/main/java/com/changgou/user/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_service/changgou_service_user/src/main/java/com/changgou/user/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_service/changgou_service_user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_service/changgou_service_user/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_user_oauth/src/main/java/com/changgou/oauth/config/AuthorizationServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_user_oauth/src/main/java/com/changgou/oauth/config/AuthorizationServerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_user_oauth/src/main/java/com/changgou/oauth/config/CustomUserAuthenticationConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_user_oauth/src/main/java/com/changgou/oauth/config/CustomUserAuthenticationConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_user_oauth/src/main/java/com/changgou/oauth/config/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_user_oauth/src/main/java/com/changgou/oauth/config/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_user_oauth/src/main/java/com/changgou/oauth/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_user_oauth/src/main/java/com/changgou/oauth/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_user_oauth/src/main/java/com/changgou/oauth/interceptor/FeignOauth2RequestInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_user_oauth/src/main/java/com/changgou/oauth/interceptor/FeignOauth2RequestInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changgou_user_oauth/src/test/java/com/changgou/token/ParseJwtTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/changgou_user_oauth/src/test/java/com/changgou/token/ParseJwtTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="changgou_parent" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="王飞扬" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\LocalRepository" />
+        <option name="mavenHome" value="D:/maven/apache-maven-3.3.9" />
+        <option name="userSettingsFile" value="D:\maven\apache-maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+        <option name="jdkForImporter" value="#JAVA_HOME" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="#JAVA_HOME" />
+    <option name="vmOptions" value="-DarchetypeCatalog=internal" />
+  </component>
+  <component name="ProjectId" id="1WICwHCc4AJj0gkz1K43OFhVeMH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/changgou_transaction_fescar/src/main/resources" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.35632184" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="show.run.dashboard.notification" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\changgou_parent\changgou_user_oauth\src\main\resources\template" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.changgou.utils" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaProjects\changgou_parent\changgou_transaction_fescar\src\main\resources" />
+      <recent name="D:\IdeaProjects\changgou_parent\changgou_service_api\changgou_service_seckill_api\src\main\java\com\changgou\seckill" />
+      <recent name="D:\IdeaProjects\changgou_parent\changgou_service\changgou_service_seckill\src\main\java\com\changgou\seckill" />
+      <recent name="D:\IdeaProjects\changgou_parent\changgou_user_oauth\src\main\resources\static" />
+      <recent name="D:\IdeaProjects\changgou_parent\changgou_service\changgou_service_order\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="dispatcherservlet" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="JarApplication" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.ParseJwtTest.testParseToken">
+    <configuration name="ParseJwtTest.testParseToken" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="changgou_user_oauth" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.token.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.changgou.token" />
+      <option name="MAIN_CLASS_NAME" value="com.changgou.token.ParseJwtTest" />
+      <option name="METHOD_NAME" value="testParseToken" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CanalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="changgou_service_canal" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.CanalApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ContentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="changgou_service_content" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.content.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.content.ContentApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="changgou_eureka" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="changgou_service_file" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.FileApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="changgou_gateway_web" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.GatewayWebApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GoodsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="changgou_service_goods" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.goods.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.goods.GoodsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ItemApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="changgou_web_item" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.ItemApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OAuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="changgou_user_oauth" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.OAuthApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="changgou_service_order" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.OrderApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RabbitMqApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="changgou_service_rabbitmq" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.RabbitMqApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="changgou_service_search" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.SearchApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="changgou_web_search" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.SearchWebApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="changgou_service_user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.UserApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WeiXinPayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="changgou_service_pay" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.changgou.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.changgou.WeiXinPayApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.ParseJwtTest.testParseToken" />
+      <item itemvalue="Spring Boot.GatewayWebApplication" />
+      <item itemvalue="Spring Boot.CanalApplication" />
+      <item itemvalue="Spring Boot.ContentApplication" />
+      <item itemvalue="Spring Boot.FileApplication" />
+      <item itemvalue="Spring Boot.WeiXinPayApplication" />
+      <item itemvalue="Spring Boot.RabbitMqApplication" />
+      <item itemvalue="Spring Boot.SearchApplication" />
+      <item itemvalue="Spring Boot.OAuthApplication" />
+      <item itemvalue="Spring Boot.ItemApplication" />
+      <item itemvalue="Spring Boot.SearchWebApplication" />
+      <item itemvalue="Spring Boot.EurekaServerApplication" />
+      <item itemvalue="Spring Boot.OrderApplication" />
+      <item itemvalue="Spring Boot.GoodsApplication" />
+      <item itemvalue="Spring Boot.UserApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.GoodsApplication" />
+        <item itemvalue="Spring Boot.EurekaServerApplication" />
+        <item itemvalue="JUnit.ParseJwtTest.testParseToken" />
+        <item itemvalue="Spring Boot.UserApplication" />
+        <item itemvalue="Spring Boot.OrderApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <option name="contentProportion" value="0.21192053" />
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Not Started" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d90477f-15a5-4be8-b03a-80baf92dc355" name="Default Changelist" comment="" />
+      <created>1578827959323</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578827959323</updated>
+      <workItem from="1578827963346" duration="7016000" />
+      <workItem from="1578840013108" duration="7067000" />
+      <workItem from="1578881567785" duration="3540000" />
+      <workItem from="1578960082696" duration="21066000" />
+      <workItem from="1579010710873" duration="7673000" />
+      <workItem from="1579046741227" duration="25655000" />
+      <workItem from="1579097549591" duration="8316000" />
+      <workItem from="1579136925316" duration="8528000" />
+      <workItem from="1579173388531" duration="9483000" />
+      <workItem from="1579220628913" duration="18440000" />
+      <workItem from="1579428736790" duration="5962000" />
+      <workItem from="1579490178546" duration="9356000" />
+      <workItem from="1579576945272" duration="5799000" />
+      <workItem from="1580093685613" duration="26334000" />
+      <workItem from="1580274196137" duration="3046000" />
+      <workItem from="1580277398490" duration="18192000" />
+      <workItem from="1580393311645" duration="7997000" />
+      <workItem from="1580433833203" duration="53440000" />
+      <workItem from="1580610199317" duration="11231000" />
+      <workItem from="1580631124293" duration="5486000" />
+      <workItem from="1580636857906" duration="12202000" />
+      <workItem from="1580709853007" duration="26308000" />
+      <workItem from="1580881346745" duration="6911000" />
+      <workItem from="1580889386437" duration="22457000" />
+      <workItem from="1580951823557" duration="38148000" />
+      <workItem from="1581038116878" duration="26939000" />
+      <workItem from="1581122714086" duration="4235000" />
+      <workItem from="1581130939980" duration="23959000" />
+      <workItem from="1581172701705" duration="3728000" />
+      <workItem from="1581209916024" duration="1675000" />
+      <workItem from="1581217586299" duration="5124000" />
+      <workItem from="1581251778123" duration="107000" />
+      <workItem from="1581319873868" duration="2003000" />
+      <workItem from="1581321924744" duration="6341000" />
+      <workItem from="1581432925856" duration="244000" />
+      <workItem from="1581476806884" duration="144000" />
+      <workItem from="1581477139037" duration="13000" />
+      <workItem from="1581519426986" duration="460000" />
+      <workItem from="1581603109336" duration="821000" />
+      <workItem from="1581642136947" duration="14589000" />
+      <workItem from="1581732517164" duration="5193000" />
+      <workItem from="1581746328007" duration="11793000" />
+      <workItem from="1581816310597" duration="8878000" />
+      <workItem from="1581857405200" duration="3340000" />
+      <workItem from="1581900858429" duration="17000" />
+      <workItem from="1581951708625" duration="747000" />
+      <workItem from="1581994976604" duration="2452000" />
+      <workItem from="1582279625789" duration="10690000" />
+      <workItem from="1582334093814" duration="8780000" />
+      <workItem from="1582447580900" duration="47000" />
+      <workItem from="1582640377187" duration="939000" />
+      <workItem from="1583507386744" duration="689000" />
+      <workItem from="1583804776534" duration="117000" />
+    </task>
+    <task id="LOCAL-00001" summary="第二次提交,第四天开始">
+      <created>1579106448848</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1579106448848</updated>
+    </task>
+    <task id="LOCAL-00002" summary="第三次提交,第五天开始">
+      <created>1579237939053</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579237939053</updated>
+    </task>
+    <task id="LOCAL-00003" summary="第四次提交,第六天开始">
+      <created>1580198605641</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1580198605641</updated>
+    </task>
+    <task id="LOCAL-00004" summary="第五次提交,第8天开始">
+      <created>1580567459751</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1580567459751</updated>
+    </task>
+    <task id="LOCAL-00005" summary="第六次提交,第10天,熔断开始">
+      <created>1580905967090</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1580905967090</updated>
+    </task>
+    <task id="LOCAL-00006" summary="第七次提交,第12天,支付系统">
+      <created>1580973090411</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1580973090411</updated>
+    </task>
+    <task id="LOCAL-00007" summary="第八次提交,第14天,秒杀系统">
+      <created>1581251033794</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1581251033794</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$" />
+      <path value="E:/GitRepositories" />
+    </ignored-roots>
+    <MESSAGE value="第一次提交" />
+    <MESSAGE value="第二次提交,第四天开始" />
+    <MESSAGE value="第三次提交,第五天开始" />
+    <MESSAGE value="第四次提交,第六天开始" />
+    <MESSAGE value="第五次提交,第8天开始" />
+    <MESSAGE value="第六次提交,第10天,熔断开始" />
+    <MESSAGE value="第七次提交,第12天,支付系统" />
+    <MESSAGE value="第八次提交,第14天,秒杀系统" />
+    <option name="LAST_COMMIT_MESSAGE" value="第八次提交,第14天,秒杀系统" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="281" y="0" width="732" height="680" key="#CanalApplication" timestamp="1581519677757">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="281" y="0" width="732" height="680" key="#CanalApplication/0.0.1280.680@0.0.1280.680" timestamp="1581519677757" />
+    <state x="281" y="0" width="732" height="680" key="#ContentApplication" timestamp="1581519691385">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="281" y="0" width="732" height="680" key="#ContentApplication/0.0.1280.680@0.0.1280.680" timestamp="1581519691385" />
+    <state x="281" y="0" width="732" height="680" key="#FileApplication" timestamp="1581519719938">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="281" y="0" width="732" height="680" key="#FileApplication/0.0.1280.680@0.0.1280.680" timestamp="1581519719938" />
+    <state x="281" y="0" width="732" height="680" key="#GatewayWebApplication" timestamp="1581519635101">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="281" y="0" width="732" height="680" key="#GatewayWebApplication/0.0.1280.680@0.0.1280.680" timestamp="1581519635101" />
+    <state x="281" y="0" width="732" height="680" key="#GoodsApplication" timestamp="1581325364189">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="281" y="0" width="732" height="680" key="#GoodsApplication/0.0.1280.680@0.0.1280.680" timestamp="1581325364189" />
+    <state x="281" y="0" width="732" height="680" key="#ItemApplication" timestamp="1581519819011">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="281" y="0" width="732" height="680" key="#ItemApplication/0.0.1280.680@0.0.1280.680" timestamp="1581519819011" />
+    <state x="233" y="2" key="#New_Docker_Connection" timestamp="1581324793596">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="2" key="#New_Docker_Connection/0.0.1280.680@0.0.1280.680" timestamp="1581324793596" />
+    <state x="466" y="4" key="#Notifications" timestamp="1580479907617">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="466" y="4" key="#Notifications/0.0.1280.680@0.0.1280.680" timestamp="1580479907617" />
+    <state x="281" y="0" width="732" height="680" key="#OAuthApplication" timestamp="1581519805548">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="281" y="0" width="732" height="680" key="#OAuthApplication/0.0.1280.680@0.0.1280.680" timestamp="1581519805548" />
+    <state x="281" y="0" width="732" height="680" key="#RabbitMqApplication" timestamp="1581519759199">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="281" y="0" width="732" height="680" key="#RabbitMqApplication/0.0.1280.680@0.0.1280.680" timestamp="1581519759199" />
+    <state x="281" y="0" width="732" height="680" key="#SearchApplication" timestamp="1581519769099">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="281" y="0" width="732" height="680" key="#SearchApplication/0.0.1280.680@0.0.1280.680" timestamp="1581519769099" />
+    <state x="281" y="0" width="732" height="680" key="#SearchWebApplication" timestamp="1581519831499">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="281" y="0" width="732" height="680" key="#SearchWebApplication/0.0.1280.680@0.0.1280.680" timestamp="1581519831499" />
+    <state x="281" y="0" width="732" height="680" key="#WeiXinPayApplication" timestamp="1581519746097">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="281" y="0" width="732" height="680" key="#WeiXinPayApplication/0.0.1280.680@0.0.1280.680" timestamp="1581519746097" />
+    <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582027037585">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="191" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1582027037585" />
+    <state x="660" y="161" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1580908858638">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="660" y="161" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1580908858638" />
+    <state x="722" y="67" key="#com.intellij.ide.util.MemberChooser" timestamp="1581172834504">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="722" y="67" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1581172834504" />
+    <state x="233" y="270" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1580888704570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="270" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.680@0.0.1280.680" timestamp="1580888704570" />
+    <state x="556" y="237" width="712" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1579179173253">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="556" y="237" width="712" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.680@0.0.1280.680" timestamp="1579179173253" />
+    <state x="680" y="101" width="488" height="579" key="#xdebugger.evaluate" timestamp="1581168949694">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="680" y="101" width="488" height="579" key="#xdebugger.evaluate/0.0.1280.680@0.0.1280.680" timestamp="1581168949694" />
+    <state x="356" y="207" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1580279123398">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="356" y="207" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1280.680@0.0.1280.680" timestamp="1580279123398" />
+    <state x="64" y="0" key="CommitChangelistDialog2" timestamp="1581672389988">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="64" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1581672389988" />
+    <state width="292" height="438" key="DebuggerActiveHint" timestamp="1581083208192">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="292" height="438" key="DebuggerActiveHint/0.0.1280.680@0.0.1280.680" timestamp="1581083208192" />
+    <state x="421" y="67" key="FileChooserDialogImpl" timestamp="1581129876784">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="67" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1581129876784" />
+    <state width="951" height="285" key="GridCell.Tab.0.bottom" timestamp="1582641327083">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1582641327083" />
+    <state width="951" height="285" key="GridCell.Tab.0.center" timestamp="1582641327083">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1582641327083" />
+    <state width="951" height="285" key="GridCell.Tab.0.left" timestamp="1582641327082">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1582641327082" />
+    <state width="951" height="285" key="GridCell.Tab.0.right" timestamp="1582641327083">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1582641327083" />
+    <state width="951" height="285" key="GridCell.Tab.1.bottom" timestamp="1582641327084">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1582641327084" />
+    <state width="951" height="285" key="GridCell.Tab.1.center" timestamp="1582641327083">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1582641327083" />
+    <state width="951" height="285" key="GridCell.Tab.1.left" timestamp="1582641327083">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1582641327083" />
+    <state width="951" height="285" key="GridCell.Tab.1.right" timestamp="1582641327083">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1582641327083" />
+    <state width="951" height="285" key="GridCell.Tab.2.bottom" timestamp="1582641327084">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.2.bottom/0.0.1280.680@0.0.1280.680" timestamp="1582641327084" />
+    <state width="951" height="285" key="GridCell.Tab.2.center" timestamp="1582641327084">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.2.center/0.0.1280.680@0.0.1280.680" timestamp="1582641327084" />
+    <state width="951" height="285" key="GridCell.Tab.2.left" timestamp="1582641327084">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.2.left/0.0.1280.680@0.0.1280.680" timestamp="1582641327084" />
+    <state width="951" height="285" key="GridCell.Tab.2.right" timestamp="1582641327084">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="951" height="285" key="GridCell.Tab.2.right/0.0.1280.680@0.0.1280.680" timestamp="1582641327084" />
+    <state x="272" y="0" key="Maven.ArtifactSearchDialog" timestamp="1581325594912">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="272" y="0" key="Maven.ArtifactSearchDialog/0.0.1280.680@0.0.1280.680" timestamp="1581325594912" />
+    <state x="202" y="0" key="SettingsEditor" timestamp="1582026944572">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="202" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1582026944572" />
+    <state x="649" y="105" width="561" height="524" key="StructurePopup" timestamp="1580548475845">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="649" y="105" width="561" height="524" key="StructurePopup/0.0.1280.680@0.0.1280.680" timestamp="1580548475845" />
+    <state width="499" height="446" key="SwitcherDM" timestamp="1580887139472">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="499" height="446" key="SwitcherDM/0.0.1280.680@0.0.1280.680" timestamp="1580887139472" />
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2" timestamp="1579238214329">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="77" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1579238214329" />
+    <state x="471" y="182" key="com.intellij.ide.util.TipDialog" timestamp="1582447601642">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="471" y="182" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1582447601642" />
+    <state x="439" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579076676369">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="439" y="259" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1579076676369" />
+    <state x="688" y="77" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1578846187306">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="688" y="77" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1280.680@0.0.1280.680" timestamp="1578846187306" />
+    <state x="191" y="80" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1581082382850">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="191" y="80" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1280.680@0.0.1280.680" timestamp="1581082382850" />
+    <state x="0" y="0" width="746" height="680" key="find.popup" timestamp="1580887827339">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="0" y="0" width="746" height="680" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1580887827339" />
+    <state x="526" y="63" width="733" height="591" key="new project wizard" timestamp="1582034616138">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="526" y="63" width="733" height="591" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1582034616138" />
+    <state x="393" y="133" width="700" height="530" key="recent.locations.popup" timestamp="1580887176469">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="393" y="133" width="700" height="530" key="recent.locations.popup/0.0.1280.680@0.0.1280.680" timestamp="1580887176469" />
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup" timestamp="1582353771118">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="297" y="151" width="672" height="677" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1582353771118" />
+    <state x="465" y="299" width="672" height="678" key="search.everywhere.popup" timestamp="1581951828945">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="465" y="299" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1581951828945" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://E:/学习资料/预习/预习资料/畅购/资料/代码生成器/code-template/src/main/java/com/itheima/CodeApplication.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/changgou_service/changgou_service_order/src/main/java/com/changgou/order/consumer/OrderPayMessageListener.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/changgou_service/changgou_service_pay/src/main/java/com/changgou/pay/controller/WeiXinPayController.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/changgou_user_oauth/src/main/java/com/changgou/oauth/config/UserDetailsServiceImpl.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/changgou_user_oauth/src/main/java/com/changgou/oauth/config/CustomUserAuthenticationConverter.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
+          <url>file://$PROJECT_DIR$/changgou_user_oauth/src/main/java/com/changgou/oauth/config/UserDetailsServiceImpl.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-defaults>
+        <breakpoint suspend="THREAD" type="java-line" />
+      </breakpoints-defaults>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="authentication" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

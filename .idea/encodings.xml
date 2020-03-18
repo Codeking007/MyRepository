@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/changgou_common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_eureka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_gateway/changgou_gateway_web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service/changgou_service_canal/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service/changgou_service_content/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service/changgou_service_file/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service/changgou_service_goods/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service/changgou_service_order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service/changgou_service_pay/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service/changgou_service_rabbitmq/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service/changgou_service_search/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service/changgou_service_search/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service/changgou_service_seckill/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service/changgou_service_user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service_api/changgou_service_content_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service_api/changgou_service_goods_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service_api/changgou_service_order_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service_api/changgou_service_pay_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service_api/changgou_service_search_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service_api/changgou_service_seckill_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service_api/changgou_service_user_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_service_api/changgou_web_item_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_transaction_fescar/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_user_oauth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_web/changgou_web_item/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/changgou_web/changgou_web_search/src/main/java" charset="UTF-8" />
+  </component>
+</project>
