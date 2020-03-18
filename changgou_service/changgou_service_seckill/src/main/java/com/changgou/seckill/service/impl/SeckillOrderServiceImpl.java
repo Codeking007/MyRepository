@@ -273,7 +273,7 @@ public class SeckillOrderServiceImpl implements SeckillOrderService {
             //3.2.3数量+1  (递增数量+1，队列数量+1)
             Long surplusCount = redisTemplate.boundHashOps("SeckillGoodsCount").increment(seckillStatus.getGoodsId(), 1);
             seckillGoods.setStockCount(surplusCount.intValue());
-            redisTemplate.boundListOps("SeckillGoodsCountList_" + seckillStatus.getGoodsId()).leftPush(seckillStatus.getGoodsId());
+//方式1防止超卖            redisTemplate.boundListOps("SeckillGoodsCountList_" + seckillStatus.getGoodsId()).leftPush(seckillStatus.getGoodsId());
 
             //3.3.数据同步到Redis中-SeckillGoods_time,UserQueueCount,UserQueueStatus
             redisTemplate.boundHashOps("SeckillGoods_"+seckillStatus.getTime()).put(seckillStatus.getGoodsId(),seckillGoods);

@@ -12,6 +12,9 @@ import org.springframework.stereotype.Component;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * 用于自定义token返回信息
+ */
 @Component
 public class CustomUserAuthenticationConverter extends DefaultUserAuthenticationConverter {
 

@@ -11,6 +11,11 @@ spring:
   redis:
     host: 192.168.211.132
     port: 6379
+  #配置分布式事务组
+  cloud:
+    alibaba:
+      seata:
+        tx-service-group: my_test_tx_group
 eureka:
   client:
     service-url:

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @Service
 public class SkuServiceImpl implements SkuService {
     @Autowired
@@ -31,8 +32,9 @@ public class SkuServiceImpl implements SkuService {
     public void decrCount(String username) {
         List<OrderItem> orderItems = redisTemplate.boundHashOps("Cart_" + username).values();
         for (OrderItem orderItem : orderItems) {
+            System.out.println("ID: " + orderItem.getSkuId() + "库存减少: " + orderItem.getNum());
             int count = skuMapper.decrCount(orderItem.getNum(), orderItem.getSkuId());
-            if (count<0){
+            if (count < 0) {
                 throw new RuntimeException("库存不足,无法购买!");
             }
         }

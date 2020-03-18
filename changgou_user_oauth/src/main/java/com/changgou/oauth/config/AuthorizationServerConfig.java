@@ -24,7 +24,9 @@ import javax.annotation.Resource;
 import javax.sql.DataSource;
 import java.security.KeyPair;
 
-
+/**
+ * spring security Oauth2 授权服务器配置
+ */
 @Configuration
 @EnableAuthorizationServer
 class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
@@ -47,16 +49,16 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     private CustomUserAuthenticationConverter customUserAuthenticationConverter;
 
     /***
-     * 客户端信息配置
+     * 第一步:配置授权服务,首先要知道客户端信息从哪读取所以要配,客户端信息配置:配置客户端详情服务,客户端id、密钥,限制那些客户端能访问授权服务
      * @param clients
      * @throws Exception
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        /*clients.inMemory()
+        /*clients.inMemory()//配在内存
                 .withClient("changgou")          //客户端id
                 .secret("changgou")                      //秘钥
-                .redirectUris("http://localhost")       //重定向地址
+                .redirectUris("http://localhost")       //重定向地址,验证回调地址
                 .accessTokenValiditySeconds(60)          //访问令牌有效期
                 .refreshTokenValiditySeconds(60)         //刷新令牌有效期
                 .authorizedGrantTypes(
@@ -70,29 +72,29 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
     /***
-     * 授权服务器端点配置
+     * 要颁发token必须定义token相关配置,知道token如何存取,以及客户端支持的token,  授权服务器端点配置:配置令牌访问端点和令牌服务,怎么发放怎么存储令牌
      * @param endpoints
      * @throws Exception
      */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.accessTokenConverter(jwtAccessTokenConverter)
+        endpoints.accessTokenConverter(jwtAccessTokenConverter)//使用jwt方式生成令牌
                 .authenticationManager(authenticationManager)//认证管理器
                 .tokenStore(tokenStore)                       //令牌存储
                 .userDetailsService(userDetailsService);     //用户信息service
     }
 
     /***
-     * 授权服务器的安全配置
+     * 既然暴露了endpoint,那就需要对endpoint定义一些安全约束授权服务器的安全配置,相当于spring security的webSecurityConfig
      * @param oauthServer
      * @throws Exception
      */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-        oauthServer.allowFormAuthenticationForClients()
+        oauthServer.allowFormAuthenticationForClients()//运行表单认证
                 .passwordEncoder(new BCryptPasswordEncoder())
-                .tokenKeyAccess("permitAll()")
-                .checkTokenAccess("isAuthenticated()");
+                .tokenKeyAccess("permitAll()")//公开公有密钥端点,如果你使用JWT令牌
+                .checkTokenAccess("isAuthenticated()");//检测令牌
     }
 
 
@@ -111,6 +113,7 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
         return new JdbcClientDetailsService(dataSource);
     }
 
+    //令牌配置--令牌存储方法
     @Bean
     @Autowired
     public TokenStore tokenStore(JwtAccessTokenConverter jwtAccessTokenConverter) {
@@ -118,7 +121,7 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
     /****
-     * JWT令牌转换器
+     * JWT令牌转换器--令牌产生的方式配置
      * @param customUserAuthenticationConverter
      * @return
      */

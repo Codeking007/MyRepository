@@ -10,6 +10,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 
+/**
+ * feign中的拦截器,可对请求进行拦截
+ */
 @Configuration
 public class FeignOauth2RequestInterceptor implements RequestInterceptor {
     @Override

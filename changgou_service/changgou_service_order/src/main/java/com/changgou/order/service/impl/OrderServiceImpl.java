@@ -11,6 +11,7 @@ import com.changgou.user.feign.UserFeign;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import entity.IdWorker;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,7 @@ import java.util.List;
  * @Description:Order业务层接口实现类
  * @Date 2019/6/14 0:16
  *****/
+@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @Service
 public class OrderServiceImpl implements OrderService {
 
@@ -239,6 +241,7 @@ public class OrderServiceImpl implements OrderService {
      *
      * @param order
      */
+    @GlobalTransactional(name = "add")
     @Override
     public Order add(Order order) {
         //查询出用户所有的购物车
@@ -270,6 +273,7 @@ public class OrderServiceImpl implements OrderService {
             num += orderItem.getNum();
             //保存订单明细
             orderItemMapper.insertSelective(orderItem);
+            System.out.println("添加订单完毕!"+orderItem.getId());
         }
         //设置统计数据
         order.setTotalNum(num);
@@ -280,8 +284,10 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.insertSelective(order);
         //减少库存
         skuFeign.decrCount(order.getUsername());
+        System.out.println("库存减少完毕!");
         //增加积分
         userFeign.addPoints(10);
+        System.out.println("添加积分完毕!");
         //清除Redis缓存购物车数据
         redisTemplate.delete("Cart_" + order.getUsername());
 
@@ -290,7 +296,7 @@ public class OrderServiceImpl implements OrderService {
             //把订单放入redis中
             redisTemplate.boundHashOps("orders").put(order.getId(), order);
             //redis队列
-            redisTemplate.boundListOps("orders").set(Long.parseLong(order.getId().substring(3)),order.getId());
+            redisTemplate.boundListOps("orders").set(Long.parseLong(order.getId().substring(3)), order.getId());
         }
         return order;
     }

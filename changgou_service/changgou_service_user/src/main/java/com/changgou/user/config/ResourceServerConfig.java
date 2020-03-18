@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
@@ -18,6 +19,7 @@ import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
 /**
+ * spring security Oauth2 资源服务配置
  * 实现信息校验
  * 1、获取公钥
  * 2、使用公钥作为校验密钥
@@ -69,7 +71,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     }
 
     /***
-     * Http安全配置，对每个到达系统的http请求链接进行校验
+     * Http安全访问配置，对每个到达系统的http请求链接进行校验
      * @param http
      * @throws Exception
      */
@@ -83,6 +85,16 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 permitAll()
                 .anyRequest().
                 authenticated();    //其他地址需要认证授权
+    }
+
+    /**
+     * 资源配置
+     * @param resources
+     * @throws Exception
+     */
+    @Override
+    public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
+        super.configure(resources);
     }
 }
 
